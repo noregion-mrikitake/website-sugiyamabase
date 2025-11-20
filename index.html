@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sugiyamabase | 会津坂下町のクリエイティブ拠点</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;900&family=Noto+Sans+JP:wght@300;400;700;900&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* カスタム設定 */
+        :root {
+            --primary: #333333;
+            --accent: #f3b145; /* NOREGION Yellow */
+            --bg-color: #FDFBF7; /* Warm Off-white like paper */
+        }
+        body {
+            font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+        .font-en {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* アニメーション関連 */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* マーキー（流れる文字） */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ホバーエフェクト */
+        .hover-image-scale {
+            overflow: hidden;
+        }
+        .hover-image-scale img {
+            transition: transform 0.6s ease;
+        }
+        .hover-image-scale:hover img {
+            transform: scale(1.05);
+        }
+
+        /* カスタムカーソル（オプション：PCのみ） */
+        @media (pointer: fine) {
+            .circle-link:hover {
+                background-color: var(--accent);
+                color: white;
+                border-color: var(--accent);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#FDFBF7]/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tighter flex items-center gap-2">
+                <span class="w-4 h-4 bg-[#f3b145] rounded-full block"></span>
+                sugiyamabase
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-bold tracking-widest">
+                <a href="#concept" class="hover:text-[#f3b145] transition">CONCEPT</a>
+                <a href="#service" class="hover:text-[#f3b145] transition">SERVICE</a>
+                <a href="#works" class="hover:text-[#f3b145] transition">WORKS</a>
+                <a href="#access" class="hover:text-[#f3b145] transition">ACCESS</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-black text-white text-xs font-bold px-6 py-3 rounded-full hover:bg-[#f3b145] hover:text-black transition-colors duration-300">
+                CONTACT
+            </a>
+            <!-- Mobile Menu Button (Visual only) -->
+            <button class="md:hidden p-2">
+                <div class="w-6 h-0.5 bg-black mb-1.5"></div>
+                <div class="w-6 h-0.5 bg-black"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10">
+                <p class="font-en font-bold text-[#f3b145] mb-4 tracking-widest fade-up">AIZUBANGE CREATIVE HUB</p>
+                <h1 class="text-5xl md:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tight mb-8 fade-up" style="transition-delay: 0.1s;">
+                    PLAY<br>
+                    LOCAL,<br>
+                    DESIGN<br>
+                    FUTURE.
+                </h1>
+                <div class="flex flex-col md:flex-row items-start gap-8 mt-12 fade-up" style="transition-delay: 0.2s;">
+                    <div class="md:w-1/2">
+                        <p class="text-lg md:text-xl font-bold leading-relaxed text-gray-800">
+                            会津坂下町に、<br>
+                            「オモシロイ」をつくる秘密基地。
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <p class="text-gray-500 leading-relaxed text-sm md:text-base">
+                            sugiyamabaseは、農村の豊かな物語と、<br>
+                            外の世界のクリエイティブを繋ぐインターフェイス。<br>
+                            デザイン、テクノロジー、そして遊び心で、<br>
+                            この町の新しい景色を実装します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decorative Circle -->
+            <div class="absolute top-0 right-0 -z-10 w-64 h-64 md:w-[500px] md:h-[500px] bg-[#f3b145] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="py-4 border-y border-gray-200 bg-white marquee-container">
+        <div class="marquee-content font-en font-black text-4xl md:text-6xl text-transparent stroke-text opacity-20" style="-webkit-text-stroke: 1px #333;">
+            DESIGN / TECHNOLOGY / IOT / BRANDING / LOCAL / AIZUBANGE / NOREGION / CREATIVE / DESIGN / TECHNOLOGY / IOT / BRANDING / LOCAL / AIZUBANGE / NOREGION / CREATIVE /
+        </div>
+    </div>
+
+    <!-- Concept Section -->
+    <section id="concept" class="py-24 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1 fade-up">
+                <div class="relative">
+                    <div class="aspect-[4/5] bg-gray-200 rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="クリエイティブなオフィスの風景" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                    </div>
+                    <!-- Badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-full shadow-xl w-40 h-40 flex items-center justify-center flex-col border border-gray-100">
+                        <span class="font-en font-black text-3xl text-[#f3b145]">3</span>
+                        <span class="text-xs font-bold text-gray-400">CORE VALUES</span>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 fade-up" style="transition-delay: 0.2s;">
+                <h2 class="font-en text-sm font-bold text-[#f3b145] mb-4 tracking-widest">OUR PHILOSOPHY</h2>
+                <h3 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                    心と視点を結ぶ、<br>
+                    創造の翻訳拠点。
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-8">
+                    言葉にならない地域の「想い」を、デザインの力で「伝わるカタチ」へ。<br>
+                    私たちは、東京やシアトルなど、世界中にいる「会津のファン」であるクリエイターと連携し、ローカルな課題をグローバルな視点で解決します。
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="border-b border-gray-200 pb-4">
+                        <span class="font-en font-bold text-xl block mb-2">01. Translation</span>
+                        <p class="text-sm text-gray-500">地元の情熱を、デザイン言語へ翻訳する。</p>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                        <span class="font-en font-bold text-xl block mb-2">02. Co-creation</span>
+                        <p class="text-sm text-gray-500">この土地を愛する外部の才能との共創。</p>
+                    </div>
+                    <div class="border-b border-gray-200 pb-4">
+                        <span class="font-en font-bold text-xl block mb-2">03. Narrative</span>
+                        <p class="text-sm text-gray-500">一過性ではない、持続可能な物語を紡ぐ。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section id="service" class="py-24 px-4 bg-[#1a1a1a] text-white rounded-t-[3rem] -mx-2 md:-mx-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 px-4">
+                <div>
+                    <h2 class="font-en text-sm font-bold text-[#f3b145] mb-2 tracking-widest">WHAT WE DO</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold">提供できること</h3>
+                </div>
+                <p class="hidden md:block text-gray-400 text-sm max-w-xs text-right">
+                    アナログからデジタル、<br>
+                    ハードウェアまで幅広く対応。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 px-2">
+                <!-- Card 1 -->
+                <div class="group p-8 bg-[#222] rounded-2xl border border-[#333] hover:border-[#f3b145] transition duration-500 fade-up">
+                    <div class="w-12 h-12 bg-[#333] rounded-full flex items-center justify-center mb-8 group-hover:bg-[#f3b145] transition">
+                        <span class="text-2xl">🎨</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Design & Branding</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        地域の企業・行政の想いを可視化。ロゴ、チラシ、パッケージから、ブランド全体の設計まで。
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>・グラフィックデザイン</li>
+                        <li>・VI / ロゴ制作</li>
+                        <li>・パッケージデザイン</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-8 bg-[#222] rounded-2xl border border-[#333] hover:border-[#f3b145] transition duration-500 fade-up" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-[#333] rounded-full flex items-center justify-center mb-8 group-hover:bg-[#f3b145] transition">
+                        <span class="text-2xl">💻</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Web & Media</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        使いやすさと美しさを兼ね備えたWebサイト構築。SNS運用やPR動画の制作も。
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>・HP / LP制作</li>
+                        <li>・ECサイト構築 (Shopify)</li>
+                        <li>・PR動画撮影・編集</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-8 bg-[#222] rounded-2xl border border-[#333] hover:border-[#f3b145] transition duration-500 fade-up" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-[#333] rounded-full flex items-center justify-center mb-8 group-hover:bg-[#f3b145] transition">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">IoT & Prototyping</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        3Dプリンターやラズパイを活用した試作開発。農業IoTなど、地域の課題を技術でハックする。
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2">
+                        <li>・3Dモデリング / 出力</li>
+                        <li>・IoTプロトタイプ</li>
+                        <li>・デジタルアーカイブ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-center font-en text-sm font-bold text-[#f3b145] mb-4 tracking-widest fade-up">SELECTED WORKS</h2>
+            <h3 class="text-center text-3xl md:text-5xl font-bold mb-16 fade-up">地域と創った実績</h3>
+
+            <!-- Grid Layout -->
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Work 1 -->
+                <div class="group cursor-pointer fade-up">
+                    <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden mb-6 hover-image-scale">
+                        <img src="https://placehold.co/800x600/EAEAEA/999999?text=Rice+Farm+Website" alt="米農家サイト" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-xl font-bold mb-1 group-hover:text-[#f3b145] transition">米農業生産法人 コーポレートサイト</h4>
+                            <p class="text-sm text-gray-500">Web Design / Direction</p>
+                        </div>
+                        <span class="font-en text-xs border border-gray-200 px-3 py-1 rounded-full">2024</span>
+                    </div>
+                </div>
+
+                <!-- Work 2 -->
+                <div class="group cursor-pointer fade-up" style="transition-delay: 0.1s;">
+                    <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden mb-6 hover-image-scale">
+                        <img src="https://placehold.co/800x600/FFF8E1/FFC107?text=Apple+Pie+LP" alt="アップルパイLP" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-xl font-bold mb-1 group-hover:text-[#f3b145] transition">アップルパイ専門店「あぴこ」LP</h4>
+                            <p class="text-sm text-gray-500">LP Design / Branding</p>
+                        </div>
+                        <span class="font-en text-xs border border-gray-200 px-3 py-1 rounded-full">2024</span>
+                    </div>
+                </div>
+
+                <!-- Work 3 -->
+                <div class="group cursor-pointer fade-up">
+                    <div class="aspect-video bg-gray-100 rounded-xl overflow-hidden mb-6 hover-image-scale">
+                        <img src="https://placehold.co/800x600/333333/FFFFFF?text=IoT+Prototype" alt="IoTデバイス" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-xl font-bold mb-1 group-hover:text-[#f3b145] transition">スマート農業 IoTプロトタイプ</h4>
+                            <p class="text-sm text-gray-500">IoT / 3D Printing</p>
+                        </div>
+                        <span class="font-en text-xs border border-gray-200 px-3 py-1 rounded-full">2024</span>
+                    </div>
+                </div>
+                
+                <!-- Work 4 (Recruit) -->
+                <div class="group flex flex-col justify-center items-center aspect-video bg-gray-50 rounded-xl border-2 border-dashed border-gray-200 hover:border-[#f3b145] hover:bg-[#fff8e1] transition cursor-pointer fade-up" style="transition-delay: 0.1s;">
+                    <span class="text-4xl mb-4">🤝</span>
+                    <h4 class="text-lg font-bold text-gray-400 group-hover:text-[#f3b145]">Next Project...</h4>
+                    <p class="text-xs text-gray-400 mt-2">あなたのプロジェクトをお待ちしています</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Access / Base Section -->
+    <section id="access" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <h2 class="font-en text-sm font-bold text-[#f3b145] mb-4 tracking-widest">THE BASE</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold mb-8">会津坂下町に<br>遊びに来ませんか？</h3>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        私たちの拠点は、豊かな自然と美味しい食に囲まれた会津坂下町にあります。<br>
+                        ミーティングはもちろん、ただ遊びに来るだけでも大歓迎。<br>
+                        クリエイティブな相談は、美味しいコーヒー（またはリンゴジュース）と共に。
+                    </p>
+                    <div class="bg-gray-50 p-6 rounded-xl inline-block w-full md:w-auto">
+                        <p class="font-bold mb-2">sugiyamabase (NOREGION Inc.)</p>
+                        <p class="text-sm text-gray-500 mb-4">〒969-65XX 福島県河沼郡会津坂下町...</p>
+                        <a href="https://maps.google.com" target="_blank" class="text-xs font-bold border-b border-black hover:text-[#f3b145] hover:border-[#f3b145] transition pb-1">Google Mapsで見る -></a>
+                    </div>
+                </div>
+                <div class="fade-up" style="transition-delay: 0.2s;">
+                    <div class="aspect-square rounded-full overflow-hidden relative border-4 border-white shadow-2xl rotate-3 hover:rotate-0 transition duration-500">
+                         <!-- Placeholder for Map or Office Photo -->
+                        <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&q=80&w=1000" alt="会津の風景" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <section id="contact" class="py-24 px-4 bg-[#f3b145] text-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto fade-up">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 text-white">LET'S CREATE<br>TOGETHER.</h2>
+            <p class="text-white/90 text-lg mb-12 font-bold">
+                地域のデザイン相談から、<br>
+                クリエイターとしてのパートナーシップまで。
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="mailto:info@no-region.com" class="bg-white text-black font-bold py-4 px-12 rounded-full hover:bg-black hover:text-white transition duration-300 shadow-lg">
+                    お問い合わせ・相談
+                </a>
+                <a href="#" class="bg-black text-white font-bold py-4 px-12 rounded-full hover:bg-white hover:text-black transition duration-300 shadow-lg">
+                    パートナー応募
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#333] text-white py-12 px-4 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-bold text-xl">sugiyamabase</div>
+            <div class="flex gap-6 font-bold text-gray-400">
+                <a href="#" class="hover:text-white">INSTAGRAM</a>
+                <a href="#" class="hover:text-white">TWITTER</a>
+                <a href="#" class="hover:text-white">NOTE</a>
+            </div>
+            <div class="text-gray-500">
+                &copy; 2025 NOREGION Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-up').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
